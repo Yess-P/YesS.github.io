@@ -1,14 +1,24 @@
-# ArgoCD Architecture
-![argocd-architecture](https://github.com/Yess-P/YesS.github.io/assets/79623220/97d00059-750d-4e93-a409-c0c21a87cdfe)
+ArgoCD Architecture
+=
+<p align="center">
+  <img src="https://github.com/Yess-P/YesS.github.io/assets/79623220/97d00059-750d-4e93-a409-c0c21a87cdfe" alt="text" width="number" />
+  https://github.com/argoproj/argo-cd/blob/master/docs/developer-guide/architecture/components.md
+</p>
 
+
+
+
+# Layer
 - **UI**: 표현 계층. 사용자는 주로 이 계층의 구성 요소를 통해 Argo CD와 상호 작용
 - **Application**: UI 계층에서 구성 요소를 지원하는 데 필요한 기능
 - **Core**: 주요 ArgoCD gitops 기능은 Core 계층의 Kubernetes 컨트롤러와 구성 요소에 의해 구현됨
-- **Infra**: ArgoCD가 인프라의 일부로써 의존하는 도구
+- **Infra**: ArgoCD가 인프라의 일부로써 의존하는 도구   
+<br>
+   
+# Component
+<br>
 
-## **UI**
-
----
+## UI
 
 **Webapp**
 
@@ -18,9 +28,9 @@
 
 - 사용자가 ArgoCD API와 상호 작용하는 데 사용할 수 있는 CLI를 제공
 
-## **Application**
+<br>
 
----
+## Application
 
 **API Server**
 
@@ -32,6 +42,10 @@
     - 외부 ID 공급자에 대한 인증 및 인증 위임
     - RBAC 적용
     - Git webhook 이벤트를 위한 listener/forwarder
+
+<br>
+
+## Core
 
 **Application Controller**
 
@@ -65,16 +79,22 @@
     - Application path
     - Template specific settings: parameters, helm values.yaml
 
+<br>
+
+## Infra
+
 ### Redis
 
 - ArgoCD의 cache 저장소
 - Kube API 혹은 Git provider를 사용하는 요청을 줄이거나 UI 동작 지원을 위해 사용됨
 - redis는 버려지는 캐시로만 사용되며 손실될 수 있음
 
+
 ### Kube API
 
 - Argo CD 컨트롤러는 reconciliation loop를 실행하기 위해 kubernetes API에 연결함
 ※ reconciliation loop - 특정 CR이 수정되는 이벤트를 관찰하고, 이벤트에 맞춰 코드를 실행하는 루프
+
 
 ### Git
 
@@ -84,15 +104,13 @@
     - Helm repo
     - OCI artifact repo
 
+
 ### Dex
 
 - ArgoCD의 외부 인증 서버 역할, 외부 OIDC 제공자와의 연동 지원
 - 다른 앱과의 인증을 위해 OpenID Connect(OIDC)를 사용하는 identity 서비스
 - LDAP, SAML, OAuth2 혹은 GitHub, Google과 같은 다양한 ID 공급자를 지원
 - 2020년 6월 25일 CNCF에 sandbox 프로젝트로 등록됨
-
-[argo-cd/docs/developer-guide/architecture/components.md at master · argoproj/argo-cd](https://github.com/argoproj/argo-cd/blob/master/docs/developer-guide/architecture/components.md)
-
 **OIDC 개념 및 동작원리**
 
 [OpenID(OIDC) 개념과 동작원리](https://hudi.blog/open-id/)
