@@ -111,6 +111,3 @@ ArgoCD Architecture
 - 다른 앱과의 인증을 위해 OpenID Connect(OIDC)를 사용하는 identity 서비스
 - LDAP, SAML, OAuth2 혹은 GitHub, Google과 같은 다양한 ID 공급자를 지원
 - 2020년 6월 25일 CNCF에 sandbox 프로젝트로 등록됨
-**OIDC 개념 및 동작원리**
-
-[OpenID(OIDC) 개념과 동작원리](https://hudi.blog/open-id/)
