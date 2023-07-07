@@ -1,4 +1,5 @@
 # ArgoCD Architecture
+![argocd-architecture](https://github.com/Yess-P/YesS.github.io/assets/79623220/97d00059-750d-4e93-a409-c0c21a87cdfe)
 
 - **UI**: 표현 계층. 사용자는 주로 이 계층의 구성 요소를 통해 Argo CD와 상호 작용
 - **Application**: UI 계층에서 구성 요소를 지원하는 데 필요한 기능
